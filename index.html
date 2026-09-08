@@ -37,20 +37,25 @@
 
     .hero{min-height:calc(100vh - 78px);display:grid;align-items:center;padding:70px 0 54px;position:relative;overflow:hidden;background:linear-gradient(100deg,#061230 0%,#081a4a 40%,#1c163d 75%,#4b1832 100%);color:#fff}
     .hero:after{content:"";position:absolute;right:-16vw;top:8vh;width:48vw;height:48vw;border:1px solid rgba(255,255,255,.10);border-radius:50%;box-shadow:inset 0 0 0 42px rgba(255,255,255,.025),inset 0 0 0 84px rgba(203,22,53,.045);pointer-events:none}
-    .hero:before{content:"";position:absolute;left:-10%;right:-10%;bottom:-90px;height:190px;background:radial-gradient(110% 160px at 50% 10px, rgba(203,22,53,1) 0%, rgba(203,22,53,.95) 48%, transparent 49%), radial-gradient(130% 180px at 16% 90px, rgba(132,8,27,1) 0%, rgba(132,8,27,.92) 50%, transparent 51%);opacity:.98}.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:52px;align-items:center;position:relative;z-index:2}
-    .hero p{font-size:clamp(1.05rem,1.7vw,1.35rem);max-width:760px;color:#d5ddef}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .hero:before{content:"";position:absolute;left:-10%;right:-10%;bottom:-90px;height:190px;background:radial-gradient(110% 160px at 50% 10px, rgba(203,22,53,1) 0%, rgba(203,22,53,.95) 48%, transparent 49%), radial-gradient(130% 180px at 16% 90px, rgba(132,8,27,1) 0%, rgba(132,8,27,.92) 50%, transparent 51%);opacity:.98}.hero-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:center;justify-items:center;position:relative;z-index:2;text-align:center}
+    .hero p{font-size:clamp(1.05rem,1.7vw,1.35rem);max-width:980px;margin-inline:auto;color:#d5ddef}
+    .hero-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:28px}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 19px;border-radius:999px;font-weight:850;border:1px solid var(--ink);transition:.2s}
     .btn.primary{background:var(--brick);border-color:var(--brick);color:#fff}.btn.primary:hover{transform:translateY(-2px);background:var(--brick2);border-color:var(--brick2)}
     .btn.secondary{border-color:rgba(255,255,255,.28);color:#fff}.btn.secondary:hover{background:rgba(255,255,255,.08)}
-    .hero-card{background:rgba(255,255,255,.96);border-radius:32px;padding:28px;box-shadow:var(--shadow);transform:rotate(1.6deg);border:1px solid rgba(255,255,255,.20)}
+    .hero-card{background:rgba(255,255,255,.96);border-radius:32px;padding:28px;box-shadow:var(--shadow);transform:none;border:1px solid rgba(255,255,255,.20);max-width:430px;width:100%}
     .hero-card img{width:86%;max-width:360px;margin:0 auto 18px;border-radius:18px;box-shadow:0 10px 28px rgba(9,24,59,.10)}
     .address{display:flex;gap:12px;align-items:flex-start;background:#f6f8ff;padding:16px;border-radius:18px;font-weight:750}
+    .instagram-button{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:14px 18px;border-radius:18px;background:linear-gradient(135deg,#833ab4 0%,#c13584 38%,#e1306c 62%,#f77737 100%);color:#fff;font-weight:900;box-shadow:0 10px 24px rgba(193,53,132,.22);transition:.2s ease}
+    .instagram-button:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(193,53,132,.28)}
+    .instagram-button svg{width:24px;height:24px;flex:0 0 auto}
+    .instagram-button span{line-height:1.15}
     .dot{width:12px;height:12px;border-radius:50%;background:var(--brick);margin-top:7px;box-shadow:0 0 0 6px rgba(169,79,49,.12)}
 
     section{padding:94px 0}
-    .section-head{display:grid;grid-template-columns:.65fr 1.35fr;gap:48px;align-items:end;margin-bottom:48px}
-    .section-head p{font-size:1.08rem;color:#526169;max-width:720px}
+    .section-head{display:grid;grid-template-columns:1fr;gap:14px;align-items:center;justify-items:center;margin-bottom:48px;text-align:center}
+    .section-head > div{max-width:980px}
+    .section-head p{font-size:1.08rem;color:#526169;max-width:920px;margin-inline:auto}
 
     .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .time-card{background:#fff;border-radius:var(--radius);padding:28px;border:1px solid rgba(24,48,71,.08);box-shadow:0 8px 24px rgba(24,48,71,.05)}
@@ -79,12 +84,20 @@
     .tag{display:inline-flex;background:#efe6d7;color:var(--brick2);font-weight:900;border-radius:999px;padding:7px 11px;font-size:.78rem;margin-bottom:10px}
     .profile ul{padding-left:19px;margin:10px 0 0}.profile li{margin:7px 0;color:#4f5d64}
 
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .gallery-item{background:#fff;border-radius:24px;overflow:hidden;border:1px solid rgba(24,48,71,.08);box-shadow:0 8px 24px rgba(24,48,71,.05)}
+    .gallery-wrap{position:relative}
+    .carousel-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .carousel-note{font-size:.95rem;color:#66747c}
+    .carousel-controls{display:flex;gap:10px;flex-shrink:0}
+    .carousel-btn{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:1.45rem;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(9,24,59,.07)}
+    .carousel-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+    .gallery-carousel{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(300px,34%);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 4px 14px;scrollbar-width:none;-ms-overflow-style:none}
+    .gallery-carousel::-webkit-scrollbar{display:none;width:0;height:0}
+    .gallery-item{background:#fff;border-radius:24px;overflow:hidden;border:1px solid rgba(24,48,71,.08);box-shadow:0 8px 24px rgba(24,48,71,.05);scroll-snap-align:start}
     .gallery-item img{width:100%;height:240px;object-fit:cover}
     .gallery-item .body{padding:16px 18px 18px}
     .gallery-item h3{font-size:1.08rem;margin:0 0 .35rem}
     .gallery-item p{font-size:.95rem;color:#5b6971;margin:0}
+    .social-link{display:inline-flex;align-items:center;gap:10px;color:#fff;font-weight:800}
 
     .residence{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
     .residence-media{position:relative}.residence-media img{height:440px;width:100%;object-fit:cover;border-radius:28px;box-shadow:var(--shadow)}
@@ -100,19 +113,20 @@
 
     .reveal{opacity:0;transform:translateY(18px);transition:.65s ease}.reveal.show{opacity:1;transform:none}
     @media(max-width:900px){
-      .hero-grid,.section-head,.mission-grid,.residence,.location-box{grid-template-columns:1fr}
-      .timeline{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.profiles,.gallery-grid{grid-template-columns:1fr}
+      .hero-grid,.mission-grid,.residence,.location-box{grid-template-columns:1fr}
+      .timeline{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.profiles{grid-template-columns:1fr}
+      .gallery-carousel{grid-auto-columns:minmax(280px,78%)}
       .links{display:none;position:absolute;top:78px;left:0;right:0;background:var(--ink);padding:20px;flex-direction:column;border-bottom:1px solid rgba(255,255,255,.12)}
-      .links.open{display:flex}.menu{display:block}.hero{min-height:auto}.hero-card{transform:none;max-width:520px}.section-head{gap:8px}
+      .links.open{display:flex}.menu{display:block}.hero{min-height:auto}.hero-card{max-width:520px}.section-head{gap:10px}.carousel-top{align-items:flex-start;flex-direction:column}
     }
-    @media(max-width:560px){.wrap{width:min(100% - 26px,1160px)}.cards{grid-template-columns:1fr}.hero{padding-top:48px}section{padding:70px 0}.footer-grid{align-items:flex-start;flex-direction:column}}
+    @media(max-width:560px){.wrap{width:min(100% - 26px,1160px)}.cards{grid-template-columns:1fr}.hero{padding-top:48px}section{padding:70px 0}.footer-grid{align-items:flex-start;flex-direction:column}.gallery-carousel{grid-auto-columns:minmax(250px,88%)}}
   </style>
 </head>
 <body>
 <header>
   <div class="wrap nav">
     <a class="brand" href="#inicio"><img src="assets/aniversario_logo.jpg" alt="Logo de 50 años de la E.E.T. N.º 23"><span>E.E.T. N.º 23<br>Caudillos Federales</span></a>
-    <nav class="links" id="links"><a href="#historia">Historia</a><a href="#mision">Misión</a><a href="#actividades">Vida institucional</a><a href="#egresados">Egresados</a><a href="#galeria">Galería</a><a href="#ubicacion">Ubicación</a></nav>
+    <nav class="links" id="links"><a href="#historia">Historia</a><a href="#mision">Misión</a><a href="#actividades">Vida institucional</a><a href="#egresados">Egresados</a><a href="#galeria">Galería</a><a href="#ubicacion">Ubicación</a><a href="https://www.instagram.com/enredcaudillosfederales/" target="_blank" rel="noopener">Instagram</a></nav>
     <button class="menu" id="menu" aria-label="Abrir menú">MENÚ</button>
   </div>
 </header>
@@ -121,14 +135,21 @@
   <section class="hero" id="inicio">
     <div class="wrap hero-grid">
       <div class="reveal">
-        <div class="eyebrow">Educación Técnica • Federal, Entre Ríos</div>
+        <div class="eyebrow">Educación Técnica • 50 años de vida institucional</div>
         <h1>Historia que forma. Técnica que transforma.</h1>
         <p>Desde el impulso de una comunidad que soñó con una escuela técnica, la E.E.T. N.º 23 “Caudillos Federales” construye oportunidades vinculando educación, trabajo, producción y compromiso con el entorno.</p>
         <div class="hero-actions"><a class="btn primary" href="#historia">Conocer nuestra historia</a><a class="btn secondary" href="#egresados">Ver perfiles de egreso</a></div>
       </div>
       <aside class="hero-card reveal">
         <img src="assets/aniversario_logo.jpg" alt="Identidad visual por los 50 años de la institución">
-        <div class="address"><span class="dot"></span><div><small class="muted">Nuestra ubicación</small><br>Rivadavia 745<br>Federal, Entre Ríos</div></div>
+        <a class="instagram-button" href="https://www.instagram.com/enredcaudillosfederales/" target="_blank" rel="noopener" aria-label="Abrir Instagram institucional @enredcaudillosfederales">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+            <circle cx="17.4" cy="6.7" r="1.2" fill="currentColor"/>
+          </svg>
+          <span>@enredcaudillosfederales</span>
+        </a>
       </aside>
     </div>
   </section>
@@ -189,7 +210,15 @@
   <section id="galeria">
     <div class="wrap">
       <div class="section-head reveal"><div><div class="eyebrow">Galería institucional</div><h2>Imágenes que muestran nuestra identidad</h2></div><p>Incorporamos fotografías reales de actividades, aulas, prácticas profesionalizantes, trabajos técnicos y espacios de la institución para que el sitio represente con mayor fidelidad la vida escolar de la E.E.T. N.º 23 “Caudillos Federales”.</p></div>
-      <div class="gallery-grid">
+      <div class="gallery-wrap">
+        <div class="carousel-top">
+          <p class="carousel-note">Deslizá las imágenes o usá las flechas para recorrer la galería institucional.</p>
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="galleryPrev" aria-label="Ver imágenes anteriores">&#8249;</button>
+            <button class="carousel-btn" id="galleryNext" aria-label="Ver imágenes siguientes">&#8250;</button>
+          </div>
+        </div>
+        <div class="gallery-carousel" id="galleryCarousel">
         <article class="gallery-item reveal"><img src="assets/ronda_estudiantes.jpg" alt="Ronda de estudiantes en una actividad institucional"><div class="body"><h3>Integración estudiantil</h3><p>Espacios de encuentro, escucha y construcción colectiva.</p></div></article>
         <article class="gallery-item reveal"><img src="assets/medicion_campo.jpg" alt="Estudiantes realizando mediciones de campo"><div class="body"><h3>Medición y relevamiento</h3><p>Prácticas de observación y uso de instrumental en terreno.</p></div></article>
         <article class="gallery-item reveal"><img src="assets/visita_obra_planos.jpg" alt="Estudiantes con cascos revisando planos en una obra"><div class="body"><h3>Lectura de planos en obra</h3><p>Articulación entre saber técnico y experiencia real.</p></div></article>
@@ -209,6 +238,7 @@
         <article class="gallery-item reveal"><img src="assets/muestras_modelos.jpg" alt="Muestras y modelos exhibidos por la escuela"><div class="body"><h3>Muestras y maquetas</h3><p>Objetos, piezas y recursos para aprender desde la experiencia.</p></div></article>
         <article class="gallery-item reveal"><img src="assets/frente_institucional.jpg" alt="Frente institucional con cartel por los 50 años"><div class="body"><h3>Frente institucional</h3><p>La escuela celebrando sus 50 años de vida institucional.</p></div></article>
         <article class="gallery-item reveal"><img src="assets/sala_informatica.jpg" alt="Sala de informática de la institución"><div class="body"><h3>Sala de Informática</h3><p>Equipamiento y espacios para la formación tecnológica.</p></div></article>
+        </div>
       </div>
     </div>
   </section>
@@ -222,7 +252,7 @@
 </main>
 
 <footer>
-  <div class="wrap footer-grid"><div><b>E.E.T. N.º 23 “Caudillos Federales”</b><br><span>Federal • Entre Ríos</span></div><div>Historia • Técnica • Comunidad • Futuro</div></div>
+  <div class="wrap footer-grid"><div><b>E.E.T. N.º 23 “Caudillos Federales”</b><br><span>Federal • Entre Ríos</span></div><div>Historia • Técnica • Comunidad • Futuro</div><div><a class="social-link" href="https://www.instagram.com/enredcaudillosfederales/" target="_blank" rel="noopener">Instagram institucional: @enredcaudillosfederales</a></div></div>
 </footer>
 
 <script>
@@ -231,6 +261,16 @@
   links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const galleryCarousel=document.getElementById('galleryCarousel');
+  const galleryPrev=document.getElementById('galleryPrev');
+  const galleryNext=document.getElementById('galleryNext');
+  const getStep=()=>{
+    const firstCard=galleryCarousel.querySelector('.gallery-item');
+    return firstCard ? firstCard.getBoundingClientRect().width + 18 : galleryCarousel.clientWidth * 0.85;
+  };
+  galleryPrev.addEventListener('click',()=>galleryCarousel.scrollBy({left:-getStep()*2,behavior:'smooth'}));
+  galleryNext.addEventListener('click',()=>galleryCarousel.scrollBy({left:getStep()*2,behavior:'smooth'}));
 </script>
 </body>
 </html>
