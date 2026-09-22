@@ -35,7 +35,16 @@
     .section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:24px}
     .section-head h2{font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0 0 6px;letter-spacing:-.03em}
     .section-head p{margin:0;color:var(--muted);max-width:660px}
-    .doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .document-section{margin-top:38px}
+    .document-section:first-of-type{margin-top:10px}
+    .document-section-head{display:flex;align-items:center;gap:14px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(9,24,59,.09)}
+    .document-section-icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#eef3ff,#fff1f4);font-size:1.2rem;flex:0 0 auto}
+    .document-section-head h3{margin:0;font-size:1.35rem;letter-spacing:-.02em}
+    .document-section-head p{margin:3px 0 0;color:var(--muted);font-size:.93rem}
+    .doc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .doc-grid.single{grid-template-columns:minmax(0,720px)}
+    .doc-card.featured{background:linear-gradient(135deg,#fff 0%,#f7f9ff 100%);border-color:rgba(31,63,150,.18);box-shadow:0 10px 28px rgba(31,63,150,.08)}
+    .doc-card.featured:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;border-radius:22px 0 0 22px;background:linear-gradient(180deg,var(--blue),var(--red))}
     .doc-card{appearance:none;text-align:left;border:1px solid rgba(9,24,59,.08);background:#fff;border-radius:22px;padding:22px;cursor:pointer;box-shadow:0 8px 24px rgba(9,24,59,.055);transition:.2s;display:grid;grid-template-columns:auto 1fr;gap:14px;position:relative;color:var(--ink);min-height:180px}
     .doc-card:hover,.doc-card:focus-visible{transform:translateY(-4px);box-shadow:0 16px 34px rgba(9,24,59,.12);border-color:rgba(31,63,150,.25);outline:none}
     .doc-card.active{border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,63,150,.11),0 16px 34px rgba(9,24,59,.11)}
@@ -92,42 +101,81 @@
     <div class="section-head">
       <div><h2>Biblioteca de documentos</h2><p>Los archivos están organizados en un espacio separado de la página informativa de la escuela.</p></div>
     </div>
-    <div class="doc-grid" id="docGrid">
-      <button class="doc-card" type="button" data-file="pdfs/resolucion-2757-contenidos-etp.pdf" data-title="Resolución 2757/11 - Contenidos mínimos de Educación Técnico Profesional">
-      <span class="doc-icon" aria-hidden="true">⚖️</span>
-      <span class="doc-content"><span class="doc-category">Normativa</span><strong>Resolución 2757/11 - Contenidos mínimos de Educación Técnico Profesional</strong><span class="doc-meta">PDF · 4.9 MB</span></span>
-      <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
-    </button>
-<button class="doc-card" type="button" data-file="pdfs/resolucion-0609-lineamientos-etp.pdf" data-title="Resolución 0609/11 - Lineamientos de Educación Técnico Profesional">
-      <span class="doc-icon" aria-hidden="true">⚖️</span>
-      <span class="doc-content"><span class="doc-category">Normativa</span><strong>Resolución 0609/11 - Lineamientos de Educación Técnico Profesional</strong><span class="doc-meta">PDF · 5.4 MB</span></span>
-      <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
-    </button>
-<button class="doc-card" type="button" data-file="pdfs/resolucion-0161-25-tecnico-programacion.pdf" data-title="Resolución 0161/25 - Diseño Curricular Técnico en Programación">
-      <span class="doc-icon" aria-hidden="true">💻</span>
-      <span class="doc-content"><span class="doc-category">Diseño curricular</span><strong>Resolución 0161/25 - Diseño Curricular Técnico en Programación</strong><span class="doc-meta">PDF · 5.4 MB</span></span>
-      <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
-    </button>
-<button class="doc-card" type="button" data-file="pdfs/resolucion-2757-mmo-ciclo-superior.pdf" data-title="Resolución 2757/11 - Ciclo Superior Maestro Mayor de Obras">
-      <span class="doc-icon" aria-hidden="true">⚖️</span>
-      <span class="doc-content"><span class="doc-category">Normativa</span><strong>Resolución 2757/11 - Ciclo Superior Maestro Mayor de Obras</strong><span class="doc-meta">PDF · 0.6 MB</span></span>
-      <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
-    </button>
-<button class="doc-card" type="button" data-file="pdfs/aec-residencia-2026.pdf" data-title="Acuerdo de Convivencia - Residencia Estudiantil 2026">
-      <span class="doc-icon" aria-hidden="true">🏠</span>
-      <span class="doc-content"><span class="doc-category">Institucional</span><strong>Acuerdo de Convivencia - Residencia Estudiantil 2026</strong><span class="doc-meta">PDF · 15.7 MB</span></span>
-      <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
-    </button>
-<button class="doc-card" type="button" data-file="pdfs/aec-eet23-2026.pdf" data-title="Acuerdo Escolar de Convivencia - E.E.T. N° 23 - 2026">
-      <span class="doc-icon" aria-hidden="true">📘</span>
-      <span class="doc-content"><span class="doc-category">Institucional</span><strong>Acuerdo Escolar de Convivencia - E.E.T. N° 23 - 2026</strong><span class="doc-meta">PDF · 15.7 MB</span></span>
-      <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
-    </button>
-<button class="doc-card" type="button" data-file="pdfs/pppi-eet23-2026.pdf" data-title="Proyecto Político Pedagógico Institucional - 2026">
-      <span class="doc-icon" aria-hidden="true">🏫</span>
-      <span class="doc-content"><span class="doc-category">Institucional</span><strong>Proyecto Político Pedagógico Institucional - 2026</strong><span class="doc-meta">PDF · 25.9 MB</span></span>
-      <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
-    </button>
+    <div id="docGrid">
+      <section class="document-section" aria-labelledby="sec-resoluciones">
+        <div class="document-section-head">
+          <span class="document-section-icon" aria-hidden="true">⚖️</span>
+          <div>
+            <h3 id="sec-resoluciones">Resoluciones y diseños curriculares</h3>
+            <p>Normativa de referencia para la Educación Técnico Profesional y las especialidades de la institución.</p>
+          </div>
+        </div>
+        <div class="doc-grid">
+          <button class="doc-card featured" type="button" data-file="pdfs/resolucion-0609-lineamientos-etp.pdf" data-title="Resolución 0609/11 - Lineamientos de Educación Técnico Profesional">
+            <span class="doc-icon" aria-hidden="true">⚖️</span>
+            <span class="doc-content"><span class="doc-category">Resolución destacada</span><strong>Resolución 0609/11 - Lineamientos de Educación Técnico Profesional</strong><span class="doc-meta">PDF · 5.4 MB</span></span>
+            <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
+          </button>
+
+          <button class="doc-card featured" type="button" data-file="pdfs/resolucion-2757-contenidos-etp.pdf" data-title="Resolución 2757/11 - Contenidos mínimos de Educación Técnico Profesional">
+            <span class="doc-icon" aria-hidden="true">⚖️</span>
+            <span class="doc-content"><span class="doc-category">Resolución destacada</span><strong>Resolución 2757/11 - Contenidos mínimos de Educación Técnico Profesional</strong><span class="doc-meta">PDF · 4.9 MB</span></span>
+            <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
+          </button>
+
+          <button class="doc-card" type="button" data-file="pdfs/resolucion-2757-mmo-ciclo-superior.pdf" data-title="Resolución 2757/11 - Ciclo Superior Maestro Mayor de Obras">
+            <span class="doc-icon" aria-hidden="true">🏗️</span>
+            <span class="doc-content"><span class="doc-category">Maestro Mayor de Obras</span><strong>Resolución 2757/11 - Ciclo Superior Maestro Mayor de Obras</strong><span class="doc-meta">PDF · 0.6 MB</span></span>
+            <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
+          </button>
+
+          <button class="doc-card" type="button" data-file="pdfs/resolucion-0161-25-tecnico-programacion.pdf" data-title="Resolución 0161/25 - Diseño Curricular Técnico en Programación">
+            <span class="doc-icon" aria-hidden="true">💻</span>
+            <span class="doc-content"><span class="doc-category">Técnico en Programación</span><strong>Resolución 0161/25 - Diseño Curricular Técnico en Programación</strong><span class="doc-meta">PDF · 5.4 MB</span></span>
+            <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="document-section" aria-labelledby="sec-convivencia">
+        <div class="document-section-head">
+          <span class="document-section-icon" aria-hidden="true">🤝</span>
+          <div>
+            <h3 id="sec-convivencia">Acuerdos de Convivencia</h3>
+            <p>Documentos institucionales vigentes para la escuela y la Residencia Estudiantil.</p>
+          </div>
+        </div>
+        <div class="doc-grid">
+          <button class="doc-card" type="button" data-file="pdfs/aec-eet23-2026.pdf" data-title="Acuerdo Escolar de Convivencia - E.E.T. N° 23 - 2026">
+            <span class="doc-icon" aria-hidden="true">📘</span>
+            <span class="doc-content"><span class="doc-category">Convivencia escolar</span><strong>Acuerdo Escolar de Convivencia - E.E.T. N° 23 - 2026</strong><span class="doc-meta">PDF · 15.7 MB</span></span>
+            <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
+          </button>
+
+          <button class="doc-card" type="button" data-file="pdfs/aec-residencia-2026.pdf" data-title="Acuerdo de Convivencia - Residencia Estudiantil 2026">
+            <span class="doc-icon" aria-hidden="true">🏠</span>
+            <span class="doc-content"><span class="doc-category">Residencia Estudiantil</span><strong>Acuerdo de Convivencia - Residencia Estudiantil 2026</strong><span class="doc-meta">PDF · 15.7 MB</span></span>
+            <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="document-section" aria-labelledby="sec-pppi">
+        <div class="document-section-head">
+          <span class="document-section-icon" aria-hidden="true">🏫</span>
+          <div>
+            <h3 id="sec-pppi">Proyecto Político Pedagógico Institucional</h3>
+            <p>Documento marco que reúne la identidad, los propósitos y las líneas institucionales para el ciclo lectivo 2026.</p>
+          </div>
+        </div>
+        <div class="doc-grid single">
+          <button class="doc-card" type="button" data-file="pdfs/pppi-eet23-2026.pdf" data-title="Proyecto Político Pedagógico Institucional - 2026">
+            <span class="doc-icon" aria-hidden="true">🏫</span>
+            <span class="doc-content"><span class="doc-category">Documento institucional</span><strong>Proyecto Político Pedagógico Institucional - 2026</strong><span class="doc-meta">PDF · 25.9 MB</span></span>
+            <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
+          </button>
+        </div>
+      </section>
     </div>
 
     <section class="viewer" id="viewer" hidden aria-live="polite">
