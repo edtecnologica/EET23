@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#09183b">
+  <meta name="description" content="Documentos institucionales de la E.E.T. N.º 23 Caudillos Federales.">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <title>Documentos Institucionales | E.E.T. N.º 23</title>
+  <style>
+    :root{--ink:#09183b;--ink2:#12285e;--blue:#1f3f96;--red:#cb1635;--paper:#f3f6fb;--white:#fff;--muted:#66738b;--line:#dce2ee;--shadow:0 18px 50px rgba(9,24,59,.14)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
+    button,input{font:inherit}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1180px,calc(100% - 34px));margin:auto}
+    header{position:sticky;top:0;z-index:40;background:rgba(9,24,59,.96);color:#fff;border-bottom:1px solid rgba(255,255,255,.12);backdrop-filter:blur(14px)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:9px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;min-width:0}
+    .brand img{width:54px;height:54px;object-fit:contain;filter:drop-shadow(0 5px 10px rgba(0,0,0,.18))}
+    .brand span{line-height:1.08}
+    .back{display:inline-flex;align-items:center;gap:8px;padding:11px 15px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-weight:800;background:rgba(255,255,255,.08)}
+    .back:hover{background:#fff;color:var(--ink)}
+    .hero{position:relative;overflow:hidden;padding:74px 0 60px;background:linear-gradient(125deg,#061230,#0b2c72 58%,#71152b);color:#fff}
+    .hero:before{content:"";position:absolute;inset:auto -10% -80px;height:170px;background:radial-gradient(110% 140px at 45% 15px,rgba(203,22,53,.96) 0 48%,transparent 49%);opacity:.85}
+    .hero-inner{position:relative;z-index:1;max-width:900px}
+    .eyebrow{font-size:.78rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:#ff95a8;margin-bottom:12px}
+    h1{font-size:clamp(2.45rem,6vw,5rem);line-height:.98;letter-spacing:-.04em;margin:0 0 18px}
+    .hero p{max-width:760px;font-size:1.08rem;color:#dfe7f6;margin:0}
+    .notice{display:inline-flex;align-items:center;gap:9px;margin-top:22px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.16);font-size:.92rem;font-weight:750}
+    main{padding:54px 0 80px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:24px}
+    .section-head h2{font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0 0 6px;letter-spacing:-.03em}
+    .section-head p{margin:0;color:var(--muted);max-width:660px}
+    .doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .doc-card{appearance:none;text-align:left;border:1px solid rgba(9,24,59,.08);background:#fff;border-radius:22px;padding:22px;cursor:pointer;box-shadow:0 8px 24px rgba(9,24,59,.055);transition:.2s;display:grid;grid-template-columns:auto 1fr;gap:14px;position:relative;color:var(--ink);min-height:180px}
+    .doc-card:hover,.doc-card:focus-visible{transform:translateY(-4px);box-shadow:0 16px 34px rgba(9,24,59,.12);border-color:rgba(31,63,150,.25);outline:none}
+    .doc-card.active{border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,63,150,.11),0 16px 34px rgba(9,24,59,.11)}
+    .doc-icon{width:48px;height:48px;border-radius:15px;background:#eef2ff;display:grid;place-items:center;font-size:1.45rem}
+    .doc-content{display:flex;flex-direction:column;min-width:0}
+    .doc-category{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:900;color:var(--red);margin-bottom:6px}
+    .doc-content strong{font-size:1.05rem;line-height:1.25}
+    .doc-meta{font-size:.86rem;color:var(--muted);margin-top:8px}
+    .doc-open{grid-column:1/-1;align-self:end;display:flex;justify-content:space-between;align-items:center;padding-top:13px;border-top:1px solid #edf0f5;color:var(--blue);font-weight:850;font-size:.93rem}
+    .viewer{margin-top:38px;scroll-margin-top:92px}
+    .viewer[hidden]{display:none}
+    .viewer-shell{background:#0b1530;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(9,24,59,.12)}
+    .viewer-head{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 20px;background:#101e42;color:#fff;border-bottom:1px solid rgba(255,255,255,.09)}
+    .viewer-title{min-width:0}
+    .viewer-title small{display:block;color:#aebcda;text-transform:uppercase;letter-spacing:.1em;font-size:.68rem;font-weight:850;margin-bottom:3px}
+    .viewer-title strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:720px}
+    .close-viewer{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);color:#fff;padding:9px 12px;border-radius:12px;font-weight:800;cursor:pointer}
+    .toolbar{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px;background:#16254d;color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+    .tool-btn{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;border-radius:10px;min-height:38px;padding:8px 12px;font-weight:800;cursor:pointer}
+    .tool-btn:hover:not(:disabled){background:rgba(255,255,255,.15)}
+    .tool-btn:disabled{opacity:.35;cursor:not-allowed}
+    .page-box{display:flex;align-items:center;gap:6px;color:#dbe4f7;font-size:.92rem;margin:0 4px}
+    .page-box input{width:58px;border:1px solid rgba(255,255,255,.18);background:#fff;color:var(--ink);border-radius:9px;padding:7px 6px;text-align:center;font-weight:800}
+    .canvas-wrap{min-height:70vh;max-height:calc(100vh - 165px);overflow:auto;background:#202a3e;padding:24px;display:flex;justify-content:center;align-items:flex-start;overscroll-behavior:contain}
+    #pdfCanvas{display:block;background:#fff;box-shadow:0 8px 28px rgba(0,0,0,.38);max-width:none}
+    .viewer-loading,.viewer-error{display:none;color:#fff;min-height:60vh;align-items:center;justify-content:center;text-align:center;padding:40px}
+    .viewer-loading.show,.viewer-error.show{display:flex}
+    .native-frame{display:none;width:100%;height:75vh;border:0;background:#fff}
+    .native-frame.show{display:block}
+    .viewer-foot{padding:11px 18px;background:#101e42;color:#b9c5dc;font-size:.82rem;text-align:center}
+    footer{background:#09183b;color:#dce5f5;padding:34px 0;text-align:center}
+    footer strong{color:#fff}
+    @media(max-width:900px){.doc-grid{grid-template-columns:1fr 1fr}.viewer-title strong{max-width:55vw}}
+    @media(max-width:620px){.wrap{width:min(100% - 22px,1180px)}.nav{min-height:70px}.brand img{width:46px;height:46px}.brand span{font-size:.88rem}.back{padding:9px 12px;font-size:.84rem}.hero{padding:52px 0 48px}.doc-grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.viewer-head{align-items:flex-start}.viewer-title strong{max-width:66vw;font-size:.9rem}.toolbar{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap}.tool-btn{white-space:nowrap}.canvas-wrap{padding:12px;min-height:62vh;max-height:calc(100vh - 180px)}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../"><img src="../favicon.png" alt="Logo E.E.T. N.º 23"><span>E.E.T. N.º 23<br>Caudillos Federales</span></a>
+    <a class="back" href="../"><span aria-hidden="true">←</span> Volver al sitio</a>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Área independiente del sitio principal</div>
+    <h1>Documentos<br>Institucionales</h1>
+    <p>Consultá normativa, acuerdos y documentación institucional directamente desde el navegador. Seleccioná un archivo para abrirlo en el visor sin necesidad de descargarlo previamente.</p>
+    <div class="notice"><span aria-hidden="true">📄</span> Visualización compatible con computadora, tablet y celular</div>
+  </div>
+</section>
+<main>
+  <div class="wrap">
+    <div class="section-head">
+      <div><h2>Biblioteca de documentos</h2><p>Los archivos están organizados en un espacio separado de la página informativa de la escuela.</p></div>
+    </div>
+    <div class="doc-grid" id="docGrid">
+      <button class="doc-card" type="button" data-file="pdfs/resolucion-2757-contenidos-etp.pdf" data-title="Resolución 2757/11 - Contenidos mínimos de Educación Técnico Profesional">
+      <span class="doc-icon" aria-hidden="true">⚖️</span>
+      <span class="doc-content"><span class="doc-category">Normativa</span><strong>Resolución 2757/11 - Contenidos mínimos de Educación Técnico Profesional</strong><span class="doc-meta">PDF · 4.9 MB</span></span>
+      <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
+    </button>
+<button class="doc-card" type="button" data-file="pdfs/resolucion-0609-lineamientos-etp.pdf" data-title="Resolución 0609/11 - Lineamientos de Educación Técnico Profesional">
+      <span class="doc-icon" aria-hidden="true">⚖️</span>
+      <span class="doc-content"><span class="doc-category">Normativa</span><strong>Resolución 0609/11 - Lineamientos de Educación Técnico Profesional</strong><span class="doc-meta">PDF · 5.4 MB</span></span>
+      <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
+    </button>
+<button class="doc-card" type="button" data-file="pdfs/resolucion-2757-mmo-ciclo-superior.pdf" data-title="Resolución 2757/11 - Ciclo Superior Maestro Mayor de Obras">
+      <span class="doc-icon" aria-hidden="true">⚖️</span>
+      <span class="doc-content"><span class="doc-category">Normativa</span><strong>Resolución 2757/11 - Ciclo Superior Maestro Mayor de Obras</strong><span class="doc-meta">PDF · 0.6 MB</span></span>
+      <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
+    </button>
+<button class="doc-card" type="button" data-file="pdfs/aec-residencia-2026.pdf" data-title="Acuerdo de Convivencia - Residencia Estudiantil 2026">
+      <span class="doc-icon" aria-hidden="true">🏠</span>
+      <span class="doc-content"><span class="doc-category">Institucional</span><strong>Acuerdo de Convivencia - Residencia Estudiantil 2026</strong><span class="doc-meta">PDF · 15.7 MB</span></span>
+      <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
+    </button>
+<button class="doc-card" type="button" data-file="pdfs/aec-eet23-2026.pdf" data-title="Acuerdo Escolar de Convivencia - E.E.T. N° 23 - 2026">
+      <span class="doc-icon" aria-hidden="true">📘</span>
+      <span class="doc-content"><span class="doc-category">Institucional</span><strong>Acuerdo Escolar de Convivencia - E.E.T. N° 23 - 2026</strong><span class="doc-meta">PDF · 15.7 MB</span></span>
+      <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
+    </button>
+<button class="doc-card" type="button" data-file="pdfs/pppi-eet23-2026.pdf" data-title="Proyecto Político Pedagógico Institucional - 2026">
+      <span class="doc-icon" aria-hidden="true">🏫</span>
+      <span class="doc-content"><span class="doc-category">Institucional</span><strong>Proyecto Político Pedagógico Institucional - 2026</strong><span class="doc-meta">PDF · 25.9 MB</span></span>
+      <span class="doc-open">Ver documento <span aria-hidden="true">→</span></span>
+    </button>
+    </div>
+
+    <section class="viewer" id="viewer" hidden aria-live="polite">
+      <div class="viewer-shell" id="viewerShell">
+        <div class="viewer-head">
+          <div class="viewer-title"><small>Visor de documentos</small><strong id="currentTitle">Documento</strong></div>
+          <button class="close-viewer" id="closeViewer" type="button">Cerrar</button>
+        </div>
+        <div class="toolbar" id="pdfToolbar">
+          <button class="tool-btn" id="prevPage" type="button" aria-label="Página anterior">← Anterior</button>
+          <div class="page-box"><span>Página</span><input id="pageNumber" type="number" min="1" value="1" inputmode="numeric" aria-label="Número de página"><span>de <b id="pageCount">0</b></span></div>
+          <button class="tool-btn" id="nextPage" type="button" aria-label="Página siguiente">Siguiente →</button>
+          <button class="tool-btn" id="zoomOut" type="button" aria-label="Alejar">−</button>
+          <button class="tool-btn" id="fitWidth" type="button">Ajustar ancho</button>
+          <button class="tool-btn" id="zoomIn" type="button" aria-label="Acercar">+</button>
+          <button class="tool-btn" id="fullscreen" type="button">Pantalla completa</button>
+        </div>
+        <div class="viewer-loading" id="viewerLoading"><div><strong>Cargando documento…</strong><br><span>Puede demorar unos segundos según el tamaño del PDF.</span></div></div>
+        <div class="viewer-error" id="viewerError"><div><strong>No se pudo iniciar el visor avanzado.</strong><br><span>Se utilizará el visor integrado del navegador.</span></div></div>
+        <div class="canvas-wrap" id="canvasWrap"><canvas id="pdfCanvas"></canvas></div>
+        <iframe class="native-frame" id="nativeFrame" title="Visor PDF integrado"></iframe>
+        <div class="viewer-foot">Usá los controles para cambiar de página, ampliar o ajustar el documento al ancho de la pantalla.</div>
+      </div>
+    </section>
+  </div>
+</main>
+<footer><div class="wrap"><strong>E.E.T. N.º 23 “Caudillos Federales”</strong><br>Federal · Entre Ríos</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  const cards=[...document.querySelectorAll('.doc-card')];
+  const viewer=document.getElementById('viewer');
+  const shell=document.getElementById('viewerShell');
+  const canvas=document.getElementById('pdfCanvas');
+  const ctx=canvas.getContext('2d');
+  const canvasWrap=document.getElementById('canvasWrap');
+  const nativeFrame=document.getElementById('nativeFrame');
+  const loading=document.getElementById('viewerLoading');
+  const errorBox=document.getElementById('viewerError');
+  const titleEl=document.getElementById('currentTitle');
+  const pageInput=document.getElementById('pageNumber');
+  const pageCount=document.getElementById('pageCount');
+  const prev=document.getElementById('prevPage');
+  const next=document.getElementById('nextPage');
+  let pdfDoc=null,pageNum=1,zoom=1.2,fit=true,rendering=false,pending=null,currentFile='';
+
+  function setLoading(on){loading.classList.toggle('show',on);canvasWrap.style.display=on?'none':'flex';}
+  function updateButtons(){prev.disabled=!pdfDoc||pageNum<=1;next.disabled=!pdfDoc||pageNum>=pdfDoc.numPages;pageInput.value=pageNum;}
+  function showNative(file){
+    pdfDoc=null;document.getElementById('pdfToolbar').style.display='none';canvasWrap.style.display='none';loading.classList.remove('show');errorBox.classList.add('show');
+    nativeFrame.src=file+'#view=FitH&toolbar=1&navpanes=0';
+    setTimeout(()=>{errorBox.classList.remove('show');nativeFrame.classList.add('show')},900);
+  }
+  async function renderPage(num){
+    if(!pdfDoc||rendering){pending=num;return;}
+    rendering=true;pageNum=Math.min(Math.max(1,num),pdfDoc.numPages);updateButtons();
+    try{
+      const page=await pdfDoc.getPage(pageNum);
+      const base=page.getViewport({scale:1});
+      const available=Math.max(280,canvasWrap.clientWidth-36);
+      const cssScale=fit?Math.min(2.2,available/base.width):zoom;
+      const dpr=Math.min(window.devicePixelRatio||1,2);
+      const viewport=page.getViewport({scale:cssScale*dpr});
+      canvas.width=Math.floor(viewport.width);canvas.height=Math.floor(viewport.height);
+      canvas.style.width=Math.floor(viewport.width/dpr)+'px';canvas.style.height=Math.floor(viewport.height/dpr)+'px';
+      await page.render({canvasContext:ctx,viewport}).promise;
+    }catch(err){console.error(err);showNative(currentFile);}
+    rendering=false;
+    if(pending!==null){const p=pending;pending=null;renderPage(p)}
+  }
+  async function openPdf(file,title,card){
+    currentFile=file;titleEl.textContent=title;cards.forEach(c=>c.classList.toggle('active',c===card));viewer.hidden=false;nativeFrame.classList.remove('show');nativeFrame.removeAttribute('src');errorBox.classList.remove('show');document.getElementById('pdfToolbar').style.display='flex';setLoading(true);
+    viewer.scrollIntoView({behavior:'smooth',block:'start'});
+    if(!window.pdfjsLib){showNative(file);return;}
+    try{
+      pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      if(pdfDoc&&pdfDoc.destroy){try{await pdfDoc.destroy()}catch(e){}}
+      pdfDoc=await pdfjsLib.getDocument(file).promise;pageNum=1;pageCount.textContent=pdfDoc.numPages;pageInput.max=pdfDoc.numPages;fit=true;setLoading(false);updateButtons();await renderPage(1);
+    }catch(err){console.error(err);showNative(file)}
+  }
+  cards.forEach(card=>card.addEventListener('click',()=>openPdf(card.dataset.file,card.dataset.title,card)));
+  prev.addEventListener('click',()=>renderPage(pageNum-1));
+  next.addEventListener('click',()=>renderPage(pageNum+1));
+  pageInput.addEventListener('change',()=>renderPage(parseInt(pageInput.value,10)||1));
+  document.getElementById('zoomIn').addEventListener('click',()=>{fit=false;zoom=Math.min(3.2,zoom+.2);renderPage(pageNum)});
+  document.getElementById('zoomOut').addEventListener('click',()=>{fit=false;zoom=Math.max(.55,zoom-.2);renderPage(pageNum)});
+  document.getElementById('fitWidth').addEventListener('click',()=>{fit=true;renderPage(pageNum)});
+  document.getElementById('fullscreen').addEventListener('click',async()=>{if(shell.requestFullscreen){try{await shell.requestFullscreen()}catch(e){}}});
+  document.getElementById('closeViewer').addEventListener('click',()=>{viewer.hidden=true;cards.forEach(c=>c.classList.remove('active'));nativeFrame.classList.remove('show');nativeFrame.removeAttribute('src');window.scrollTo({top:document.getElementById('docGrid').offsetTop-90,behavior:'smooth'})});
+  let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(pdfDoc&&fit)renderPage(pageNum)},180)});
+</script>
+</body>
+</html>
